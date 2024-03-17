@@ -19,7 +19,12 @@ export const Login: React.FC = () => {
     const { loading, trigger, error } = useFetch<LoginApi>(API.login);
 
     useEffect(() => {
-        if (error) message.error((error.response?.data as { message: string }).message);
+        let msg;
+        if (error){
+            msg = (error.response?.data as { message: string })?.message;
+            msg = msg ?? error.message;
+            message.error(msg);
+        };
     }, [error]);
 
     const onFinish = (values: LoginFormState) => {

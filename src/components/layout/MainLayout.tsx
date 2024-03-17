@@ -8,7 +8,7 @@ export const MainLayout: React.FC = () => {
         <Layout className="w-full flex transition ease-in-out min-h-[100svh]">
             <Header style={styles.header}>
                 <div className="h-full flex items-center">
-                    <img width={140} className="my-auto" src="./logo.png" />
+                    <img width={40} className="my-auto" src="./logo.png" />
                 </div>
             </Header>
             <Layout>
