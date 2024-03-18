@@ -4,7 +4,7 @@ import { AxiosError } from 'axios';
 export default function useFetch<T extends (...arg: any[]) => any>(fetcher: T, initial: boolean = false) {
     const [loading, setLoading] = useState<boolean>(initial);
 
-    const [data, setData] = useState<ReturnType<typeof fetcher> | null>(null);
+    const [data, setData] = useState<Awaited<ReturnType<typeof fetcher>> | null>(null);
 
     const [error, setError] = useState<AxiosError | null>(null);
 
